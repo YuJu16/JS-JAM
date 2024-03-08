@@ -34,4 +34,7 @@ Don't Forget! :
 Remember, the primary goal is to have fun and learn while taking on the challenge of the game jam. So, get ready to dive into the world of survival games. Good luck to everyone, and let the game jam begin! 🎮🐾
 
 
-subject  link : https://itch.io/jam/survivaljam23
+subject link : https://itch.io/jam/survivaljam23
+
+
+repo link : https://github.com/YuJu16/JS-JAM
