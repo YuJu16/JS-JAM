@@ -4,8 +4,8 @@ class Bot {
         this.bullets = [];
     }
 
-    update() {
-        if (Math.random() < 0.02) {
+    update(character) {
+        if (this.coordonnees.y === character.coordonnees.y) {
             this.shoot();
         }
         this.bullets.forEach(bullet => {
@@ -26,4 +26,9 @@ class Bot {
         const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
         this.bullets.push(bullet);
     }
+
+}
+
+function preload() {
+    characterImage = loadImage('../img/ninja.png');
 }

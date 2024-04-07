@@ -6,11 +6,10 @@ function setup() {
     player = new Character();
     bot = new Bot();
 }
-
 function draw() {
     background(220);
     bot.draw();
     player.draw();
-    bot.update();
-    player.update()
+    player.update();
+    bot.update(player);
 }

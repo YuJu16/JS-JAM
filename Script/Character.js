@@ -4,6 +4,7 @@ class Character {
     constructor() {
         this.coordonnees = createVector(100, 100); 
         this.speed = 8;
+        this.radius = 15;
     }
 
     draw() {
@@ -54,6 +55,3 @@ class Character {
 function preload() {
     characterImage = loadImage('../img/ninja.png');
 }
-
-
-
