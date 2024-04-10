@@ -3,11 +3,14 @@ class Bullet {
       this.x = x;
       this.y = y;
       this.radius = 5;
-      this.speed = 20;
+      this.speed = 1;
+      this.velocityX = 0;
+      this.velocityY = 0;
   }
 
   update() {
-    this.x += this.speed;
+    this.x += this.speed * this.velocityX;
+    this.y += this.speed * this.velocityY;
   }
 
   draw() {

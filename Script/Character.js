@@ -1,8 +1,8 @@
 let characterImage;
 
 class Character {
-    constructor() {
-        this.coordonnees = createVector(100, 100); 
+    constructor(coordonneesX, coordonneesY) {
+        this.coordonnees = createVector(coordonneesX, coordonneesY);
         this.speed = 8;
         this.radius = 15;
     }
@@ -14,7 +14,6 @@ class Character {
     }
 
     update() {
-        console.log("coucou")
         this.move(2)
 
         if (mouseIsPressed && mouseButton === LEFT && this.dashCooldown <= 0) {
