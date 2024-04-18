@@ -181,3 +181,40 @@ button:active {
 .cart:hover {
   transform: translateY(-15px);
 }
+/* CSS pour afficher l'écran de défaite */
+#loose-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loose-message {
+  text-align: center;
+  color: white;
+}
+
+.loose-message h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.loose-message button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #f44336; /* Rouge */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.loose-message button:hover {
+  background-color: #d32f2f; /* Rouge plus sombre au survol */
+}
