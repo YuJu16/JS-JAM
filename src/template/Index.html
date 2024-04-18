@@ -7,12 +7,25 @@
     <title>Mon Jeu</title>
 </head>
 <body>
-    <!-- Incluez character.js AVANT main.js -->
+    <div id="gameArea">
+        
+    </div>
+
+    <div id="gameOver" style="display: none;">
+        <h1>You lost !</h1>
+        <button onclick="replay()">Rejouer</button>
+    </div>
+
+    <div id="gameWin" style="display: none;">
+        <h1>You win !</h1>
+        <button onclick="replay()">Rejouer</button>
+    </div>
+
     <script src="../../Script/Character.js"></script>
     <script src="../../Script/Bot.js"></script>
     <script src="../../Script/Bullet.js"></script>
     <script src="../../Script/Setup.js"></script>
-    <script src="../../Script/Win.js"></script>
-    <script src="../../Script/Loose.js"></script>
+    <script src="../../Script/loose.js"></script>
+    <script src="../../Script/win.js"></script>
 </body>
 </html>
