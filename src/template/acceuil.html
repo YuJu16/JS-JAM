@@ -31,21 +31,27 @@
                 </div>
             </div>
         </div>
-       
     </header>
-    
+
     <div id="game-section" style="display: none;">
         <!-- Contenu de votre jeu -->
         <script src="../../Script/Character.js"></script>
         <script src="../../Script/Bot.js"></script>
         <script src="../../Script/Bullet.js"></script>
         <script src="../../Script/Setup.js"></script>
-        <script src="../../Script/loose.js"></script>
+        <script src="../../Script/Loose.js"></script>
+        <script src="../../Script/Win.js"></script>
+    </div>
+
+    <!-- Écran de défaite -->
+    <div id="loose-screen" style="display: none;">
+        <h2>You have been hit by an enemy arrow. You lost !</h2>
+        <!-- Ajoutez d'autres éléments comme des boutons de rejouer, etc., si nécessaire -->
     </div>
 
     <script>
         function startGame() {
-           document.getElementById('game-section').style.display = 'block';
+            document.getElementById('game-section').style.display = 'block';
         }
     </script>
 </body>
