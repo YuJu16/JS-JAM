@@ -1,6 +1,6 @@
 class Bot {
     constructor(coordonneesX, coordonneesY) {
-        this.coordonnees = createVector(coordonneesX, coordonneesY);
+        this.coordonnees = { x: coordonneesX, y: coordonneesY };
         this.bullets = [];
         this.radius = 15;
         this.dead = false;
@@ -40,9 +40,8 @@ class Bot {
     
 
     draw() {
-        fill(255, 0, 0);
-        rectMode(CENTER);
-        rect(this.coordonnees.x, this.coordonnees.y, 20, 20);
+        c.fillStyle = 'rgb(255, 0, 0)';
+        c.fillRect(this.coordonnees.x, this.coordonnees.y, 20, 20);
         this.bullets.forEach(bullet => {
             bullet.draw();
         });

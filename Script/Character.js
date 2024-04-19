@@ -1,4 +1,4 @@
-let characterImage;
+/*let characterImage;
 
 class Character {
     constructor(coordonneesX, coordonneesY) {
@@ -53,4 +53,24 @@ class Character {
 
 function preload() {
     characterImage = loadImage('../img/ninja.png');
+}
+*/
+class Character {
+    constructor(coordonneesX, coordonneesY) {
+        this.coordonnees = { x: coordonneesX, y: coordonneesY };
+        this.speed = 8;
+        this.radius = 15;
+        this.xSpeed = 0;
+        this.ySpeed = 0;
+    }
+
+    update() {
+    }
+
+    draw() {
+        c.fillStyle = 'rgb(0, 255, 0)';
+        c.beginPath();
+        c.arc(this.coordonnees.x, this.coordonnees.y, 15, 0, Math.PI * 2);
+        c.fill();
+    }
 }

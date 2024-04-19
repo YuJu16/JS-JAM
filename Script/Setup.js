@@ -1,43 +1,40 @@
-let player;
-let bot;
-let bot2;
+const canvas = document.getElementById('Canvas');
+const c = canvas.getContext('2d');
 
-function setup() {
-    createCanvas(1650, 800);
-    player = new Character(100, 650);
-    bot = new Bot(200, 200);
-    bot2 = new Bot(900, 200);
-}
+canvas.width = 1024;
+canvas.height = 576;
 
-function plan() {
-    background(150, 230, 420);
+c.fillStyle = 'white';
+c.fillRect(0, 0, canvas.width, canvas.height);
 
-    noStroke();
-    fill(100, 200, 75);
-    rect(width/2, 750, width, 100);
+const image = new Image();
+image.src = '../img/map1.png';
 
-    noFill();
-    stroke(0);
-    strokeWeight(15);
-    rect(width/2, height/2, width, height);
+image.onload = () => {
+    const newWidth = 1024; 
+    const newHeight = 576;
+    c.drawImage(image, 0, 0, newWidth, newHeight);
 
-    stroke(0);
-    strokeWeight(5);
-    fill(255, 120, 0);
-    rect(200, 234, 200, 40);
+    let player;
+    let bot;
+    let bot2;
 
-    stroke(0);
-    strokeWeight(5);
-    fill(255, 120, 0);
-    rect(905, 234, 200, 40);
-}
+    function setup() {
+        player = new Character(500, 438);
+        bot = new Bot(155, 188);
+        bot2 = new Bot(835, 188);
+    }
 
-function draw() {
-    plan();  
-    bot.draw();
-    bot2.draw();
-    player.draw();
-    player.update();
-    bot.update(player, bot2);
-    bot2.update(player, bot);
+    function draw() {
+        bot.draw();
+        bot2.draw();
+        player.draw();
+        player.update();
+        bot.update(player, bot2);
+        bot2.update(player, bot);
+    }
+
+    setup();
+
+    setInterval(draw, 1000 / 60);
 }
