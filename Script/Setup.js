@@ -8,7 +8,7 @@ c.fillStyle = 'white';
 c.fillRect(0, 0, canvas.width, canvas.height);
 
 const image = new Image();
-image.src = '../img/map1.png';
+image.src = '../img/Lvl1.png';
 
 image.onload = () => {
     const newWidth = 1024; 
