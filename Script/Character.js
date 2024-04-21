@@ -62,6 +62,7 @@ class Character {
         this.radius = 15;
         this.xSpeed = 0;
         this.ySpeed = 0;
+        this.alive = true;
     }
 
     update() {
