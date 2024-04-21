@@ -1,7 +1,7 @@
 // Détecter la collision entre le joueur et une flèche ennemie
-function detecterCollision(joueur, fleche) {
+function verifierLoose(joueur ) {
     // Vérifie si les coordonnées du joueur et de la flèche se superposent
-    if (dist(joueur.coordonnees.x, joueur.coordonnees.y, fleche.x, fleche.y) < joueur.radius + fleche.radius) {
+    if (joueur.alive === false){
         // Le joueur touché, défaite du joueur 
         console.log("Défaite !");
         // Afficher un message de défaite

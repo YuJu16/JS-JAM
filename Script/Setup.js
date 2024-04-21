@@ -35,6 +35,12 @@ image.onload = () => {
     }
 
     setup();
+    if (bot.alive === false && bot2.alive === false) { 
+        ennemisVaincus = true;
+    } // Si les deux bots sont morts, le joueur a gagné
+    verifierVictoire() // appel la fonction victoire
+    
+    verifierLoose(player); // appel la fonction defaite
 
     setInterval(draw, 1000 / 60);
 }
