@@ -1,40 +1,33 @@
-const canvas = document.getElementById('Canvas');
-const c = canvas.getContext('2d');
+//game stage
+var stage = 0;
 
-canvas.width = 1024;
-canvas.height = 576;
+var platform;
+var characterImage;
+var backgroundImage;
 
-c.fillStyle = 'white';
-c.fillRect(0, 0, canvas.width, canvas.height);
+//function that setup the canvas
+function setup() {
+    createCanvas(windowWidth-35, windowHeight-35);
+    //createCanvas(800, 500);
+    rectMode(CENTER);
+    textAlign(CENTER);
+    imageMode(CENTER);
+}
 
-const image = new Image();
-image.src = '../img/Lvl1.png';
-
-image.onload = () => {
-    const newWidth = 1024; 
-    const newHeight = 576;
-    c.drawImage(image, 0, 0, newWidth, newHeight);
-
-    let player;
-    let bot;
-    let bot2;
-
-    function setup() {
-        player = new Character(500, 438);
-        bot = new Bot(155, 188);
-        bot2 = new Bot(835, 188);
+//function that draw the page
+function draw() {
+    if (stage == 0) {
+        map1();
     }
-
-    function draw() {
-        bot.draw();
-        bot2.draw();
-        player.draw();
-        player.update();
-        bot.update(player, bot2);
-        bot2.update(player, bot);
+    keyPressed();
+    if (isOnAGround() == false && jumping == false) {
+        jumping = true;
+        flyingFramecount = 175;
     }
+}
 
-    setup();
-
-    setInterval(draw, 1000 / 60);
+function preload() {
+    characterImage = loadImage('src/img/ninja2D.png');
+    platform = loadImage('src/img/platform.png');
+    backgroundImage = loadImage('src/img/background.png');
 }
