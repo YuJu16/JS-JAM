@@ -4,6 +4,7 @@ var stage = 0;
 var platform;
 var characterImage;
 var backgroundImage;
+var botImage;
 
 //function that setup the canvas
 function setup() {
@@ -30,4 +31,5 @@ function preload() {
     characterImage = loadImage('src/img/ninja2D.png');
     platform = loadImage('src/img/platform.png');
     backgroundImage = loadImage('src/img/background.png');
+    botImage = loadImage('src/img/ninjaMechant.png');
 }

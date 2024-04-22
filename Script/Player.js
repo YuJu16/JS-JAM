@@ -38,4 +38,9 @@ function keyPressed() {
             playerX = playerX - playerSpeed;
         }
     }
+
+    //to know coordonates (make map more easly)
+    if (keyIsDown(67)) { //c
+        console.log(playerX, playerY);
+    }
 }

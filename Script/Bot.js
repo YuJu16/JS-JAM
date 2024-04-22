@@ -6,28 +6,28 @@ class Bot {
         this.dead = false;
     }
 
-    update(character, bot) {
-        if (character.coordonnees.y === this.coordonnees.y && character.coordonnees.x > this.coordonnees.x) {
+    update(bot) {
+        if (playerY === this.coordonnees.y && playerX > this.coordonnees.x) {
             this.shootRight();
         }
         
-        if (character.coordonnees.y === this.coordonnees.y && character.coordonnees.x < this.coordonnees.x) {
+        if (playerY === this.coordonnees.y && playerX < this.coordonnees.x) {
             this.shootLeft();
         }
 
-        if (character.coordonnees.x === this.coordonnees.x && character.coordonnees.y < this.coordonnees.y) {
+        if (playerX === this.coordonnees.x && playerY< this.coordonnees.y) {
             this.shootUp();
         }
         
-        if (character.coordonnees.x === this.coordonnees.x && character.coordonnees.y > this.coordonnees.y) {
+        if (playerX === this.coordonnees.x && playerY > this.coordonnees.y) {
             this.shootDown();
         }
         
     
         this.bullets.forEach((bullet) => {
             bullet.update();
-            if (dist(bullet.x, bullet.y, character.coordonnees.x, character.coordonnees.y) < character.radius) {
-                character.destroy();
+            if (dist(bullet.x, bullet.y, playerX, playerY) < character.radius) {
+                //character.destroy();
             }
             if (dist(bullet.x, bullet.y, bot.coordonnees.x, bot.coordonnees.y) < bot.radius) {
                 bot.dead = true;
@@ -40,8 +40,7 @@ class Bot {
     
 
     draw() {
-        c.fillStyle = 'rgb(255, 0, 0)';
-        c.fillRect(this.coordonnees.x, this.coordonnees.y, 20, 20);
+        image(botImage, this.coordonnees.x, this.coordonnees.y, 75, 75);
         this.bullets.forEach(bullet => {
             bullet.draw();
         });

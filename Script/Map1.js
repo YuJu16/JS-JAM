@@ -17,6 +17,10 @@ const box2Y = 300;
 const box2Width = 300;
 const box2Height = 40;
 
+//declare bots
+let bot;
+let bot2;
+
 function map1() {
     //background
     image(backgroundImage, windowWidth/2, windowHeight/2, windowWidth-35, windowHeight-35)
@@ -29,6 +33,16 @@ function map1() {
 
     //spawn player
     drawPlayer(playerX, playerY);
+
+    //spawn bots
+    bot = new Bot(155, 330);
+    bot2 = new Bot(600, 250);
+
+    bot.draw();
+    bot2.draw();
+
+    bot.update(bot2);
+    bot2.update(bot);
 
     //apply gravity
     jump();
