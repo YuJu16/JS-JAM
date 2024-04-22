@@ -16,7 +16,3 @@ function jump() {
         }
     }
 }
-
-function gravity() {
-
-}
