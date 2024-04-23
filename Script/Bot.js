@@ -6,27 +6,28 @@ class Bot {
         this.dead = false;
     }
 
-    update(bot) {
-        if (playerY === this.coordonnees.y && playerX > this.coordonnees.x) {
-            this.shootRight();
-        }
-        
-        if (playerY === this.coordonnees.y && playerX < this.coordonnees.x) {
-            this.shootLeft();
-        }
 
-        if (playerX === this.coordonnees.x && playerY< this.coordonnees.y) {
-            this.shootUp();
-        }
+    update(bot) {
+        //if (playerY === this.coordonnees.y && playerX > this.coordonnees.x) {
+            this.shootRight();
+        //}
         
-        if (playerX === this.coordonnees.x && playerY > this.coordonnees.y) {
+        //if (playerY === this.coordonnees.y && playerX < this.coordonnees.x) {
+            this.shootLeft();
+        //}
+
+        //if (playerX === this.coordonnees.x && playerY < this.coordonnees.y) {
+            this.shootUp();
+        //}
+        
+        //if (playerX === this.coordonnees.x && playerY > this.coordonnees.y) {
             this.shootDown();
-        }
+        //}
         
     
         this.bullets.forEach((bullet) => {
             bullet.update();
-            if (dist(bullet.x, bullet.y, playerX, playerY) < character.radius) {
+            if (dist(bullet.x, bullet.y, playerX, playerY) < playerX) {
                 //character.destroy();
             }
             if (dist(bullet.x, bullet.y, bot.coordonnees.x, bot.coordonnees.y) < bot.radius) {
@@ -36,8 +37,7 @@ class Bot {
             }
         });
         this.bullets = this.bullets.filter(bullet => bullet.x < width);
-    }
-    
+    }    
 
     draw() {
         image(botImage, this.coordonnees.x, this.coordonnees.y, 75, 75);
@@ -69,5 +69,4 @@ class Bot {
         bullet.velocityY = -10;
         this.bullets.push(bullet);
     }
-    
 }

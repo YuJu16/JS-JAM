@@ -38,11 +38,12 @@ function map1() {
     bot = new Bot(155, 330);
     bot2 = new Bot(600, 250);
 
-    bot.draw();
-    bot2.draw();
-
     bot.update(bot2);
     bot2.update(bot);
+    
+    bot.draw();
+    bot2.draw();
+    
 
     //apply gravity
     jump();
