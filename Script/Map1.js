@@ -67,6 +67,10 @@ function drawMap1() {
 
     //apply gravity
     jump();
+
+    homeButton = createButton('Home');
+    homeButton.position(10, 10);
+    homeButton.mousePressed(home);
 }
 
 //isOnAGround is the function where we are going to define all collisions 

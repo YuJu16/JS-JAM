@@ -1,8 +1,473 @@
-html, body {
+canvas {
+  display: block;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("https://i.pinimg.com/originals/e5/67/e6/e567e6617a3910964ea531ee2c079150.gif");
+  background-size: cover;
+}
+
+p {
+  font-family: 'Inter', sans-serif;
+    font-size: 20px;
+}
+
+* {
   margin: 0;
   padding: 0;
 }
 
-canvas {
-  display: block;
+/* header {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3fr 1fr;
+} */
+
+.section_3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.section_3_partion_1 {
+  position: relative;
+}
+
+.partition_1_head {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: center;
+  transform: translateX(-40%);
+  align-items: center;
+}
+
+.button {
+  width: 6rem;
+  height: 6rem;
+  background-color: #da6b34;
+  border-radius: 0;
+  box-shadow: 5px 5px 0px black;
+  transform: translate(0,0);
+  z-index: 1;
+  padding: 0;
+  position: relative;
+}
+
+.button:active ~ .mario {
+  animation: jump2 0.6s ease-in-out;
+}
+
+.button:active {
+  transform: translate(0,-15px);
+}
+
+.button:active ~ .coin {
+  animation: jump 1s;
+}
+
+.button:hover {
+  animation: animate 1s infinite;
+}
+
+.button-icon {
+  position: relative;
+  top: 25%;
+  left: 63%;
+  z-index: 1;
+  transform: scale(1.5);
+}
+
+.overlay {
+  position: absolute;
+  width: 6rem;
+  height: 6rem;
+  background-color: #FFC07B;
+}
+
+.one {
+  position: absolute;
+  background-color: #DE5917;
+  box-shadow: 2px 2px 0px black;
+  width: 1rem;
+  height: 0.35rem;
+  z-index: 10;
+}
+
+.one:after {
+  content: "";
+  position: absolute;
+  background-color: #DE5917;
+  box-shadow: 2px 2px 0px black;
+  width: 0.5rem;
+  height: 0.5rem;
+  transform: translate(5px,15px);
+  z-index: 10;
+}
+
+.one:before {
+  content: "";
+  position: absolute;
+  background-color: #DE5917;
+  box-shadow: 2px 2px 0px black;
+  width: 0.5rem;
+  height: 0.5rem;
+  transform: translate(5px,25px);
+  z-index: 10;
+}
+
+.two {
+  position: absolute;
+  background-color: #DE5917;
+  box-shadow: 2px 2px 0px black;
+  width: 0.5rem;
+  height: 0.5rem;
+  transform: translate(-50%,50%);
+  z-index: 10;
+}
+
+.two::after {
+  content: "";
+  position: absolute;
+  background-color: #DE5917;
+  box-shadow: 2px 2px 0px black;
+  width: 0.5rem;
+  height: 0.8rem;
+  transform: translate(190%,-5%);
+  z-index: 10;
+}
+
+.two::before {
+  content: "";
+  position: absolute;
+  background-color: #DE5917;
+  width: 0.7rem;
+  height: 0.3rem;
+  transform: translate(12px,8px);
+  z-index: 10;
+}
+
+.dots {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  transform: translate(-20px,-12px);
+  background-color: #000;
+}
+
+.dots::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  transform: translate(50px,0px);
+  background-color: #000;
+}
+
+.dots2 {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  transform: translate(-20px,40px);
+  background-color: #000;
+}
+
+.dots2::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  transform: translate(50px,0px);
+  background-color: #000;
+}
+
+@keyframes animate {
+  0% {
+    background-color: #FFC07B;
+  }
+
+  75% {
+    background-color: #DE5917;
+  }
+
+  100% {
+    background-color: #da6b34;
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translate(0,-15px) rotateY(0deg);
+  }
+
+  50% {
+    transform: translate(0,-200px) rotateY(180deg);
+  }
+
+  75% {
+    transform: translate(0,-15px) rotateY(270deg);
+  }
+
+  100% {
+    transform: translate(0,-15px) rotateY(360deg);
+  }
+}
+
+.button-container p {
+  color: rgb(255, 96, 96);
+  text-align: center;
+  transform: translate(0,1rem);
+  font-weight: bold;
+  z-index: -2;
+}
+
+@keyframes jump2 {
+  0% {
+    transform: translate(20px,200px);
+  }
+
+  50% {
+    transform: translate(20px,25px);
+  }
+
+  100% {
+    transform: translate(20px,200px);
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+
+	--bkg: #0c73ce;
+	--white: #e7e6e6;
+
+	background-color: var(--white);
+	
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	display: grid;
+	place-items: center;
+	overflow: hidden;
+}
+
+.title {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.title h2 {
+	font-size: 5vmin;
+	font-weight: 900;
+	font-family: "Montserrat", sans-serif;
+	color: rgb(170, 0, 0);
+}
+
+.ghost {
+	width: 10vmin;
+	height: 12vmin;
+	background-color: var(--white);
+	background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+	background-image: radial-gradient(ellipse at 35% 40%, #000 8%, transparent 0%),
+		radial-gradient(ellipse at 65% 40%, #000 8%, transparent 0%),
+		radial-gradient(ellipse at 50% 60%, #000 8%, transparent 0%);
+	border-radius: 100% / 70% 70% 0% 0%;
+	transform: translateX(100em) rotateZ(-90deg);
+	position: relative;
+	opacity: 0.9;
+	mix-blend-mode: exclusion;
+	animation: ghostMove 5s ease-out infinite;
+  top: -17.5%;
+}
+@keyframes ghostMove {
+	0% {
+		transform: translateX(70em) rotateZ(-90deg);
+	}
+	100% {
+		transform: translateX(-70em) rotateZ(-90deg);
+	}
+}
+.ghost div {
+	position: absolute;
+	width: 20%;
+	background-color: var(--white);
+	background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+}
+.ghost div:nth-of-type(1) {
+	height: 7vmin;
+	left: 0;
+	bottom: -6vmin;
+	border-radius: 100% / 0% 0% 50% 50%;
+}
+.ghost div:nth-of-type(2),
+.ghost div:nth-of-type(4) {
+	height: 4vmin;
+	left: 20%;
+	bottom: -3vmin;
+	border-radius: 100% / 50% 50% 0% 0%;
+	background-color: transparent;
+}
+.ghost div:nth-of-type(3) {
+	height: 4vmin;
+	left: 40%;
+	bottom: -3.95vmin;
+	border-radius: 100% / 0% 0% 60% 60%;
+	background-color: var(--white);
+}
+.ghost div:nth-of-type(4) {
+	left: 60%;
+}
+.ghost div:nth-of-type(5) {
+	height: 3vmin;
+	left: 80%;
+	bottom: -2.9vmin;
+	border-radius: 100% / 0% 0% 70% 70%;
+	background-color: var(--white);
+}
+
+.welcome_message {
+  font-size: 5rem;
+  color: transparent;
+  font-family: sans-serif;
+  -webkit-text-stroke: 2px #fb0606;
+  cursor: pointer;
+  transition: all .4s ease;
+  display: flex;
+  justify-content: center;
+}
+
+.welcome_message:hover {
+  color: rgba(255, 255, 255, 0.7);
+  -webkit-text-stroke: 0;
+}
+
+.section_3_partion_2 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carts_container {
+  height: 80%;
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.cart {
+  border: 1px solid #fff;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all .5s ease;
+}
+
+.cart_image {
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cart_text {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.cart_image_1 {
+  background-image: url(img2.jpg);
+}
+
+.cart_image_2 {
+  background-image: url(img3.jpg);
+}
+
+.cart_image_3 {
+  background-image: url(img4.jpg);
+}
+
+.cart:hover {
+  transform: translateY(-15px);
+}
+#loose-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#loose-screen .message {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#loose-screen .message h2 {
+  color: #ff0000;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#loose-screen .message p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+#loose-screen .message button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff0000;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#loose-screen .message button:hover {
+  background-color: #cc0000;
+}
+
+.hidden {
+  display: none;
 }

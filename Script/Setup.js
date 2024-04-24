@@ -23,7 +23,7 @@ function setup() {
 
 //function that draw the page
 function draw() {
-    if (stage == 0) {
+    if (stage == 1) {
         drawMap1();
     }
     keyPressed();
@@ -42,4 +42,8 @@ function preload() {
     leftkniffe = loadImage('src/img/leftkn.png');
     rightkniffe = loadImage('src/img/rightkn.png');
     upkniffe = loadImage('src/img/upkn.png');
+}
+
+function home() {
+    stage = 0;
 }
