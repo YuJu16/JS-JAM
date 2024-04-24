@@ -1,5 +1,5 @@
 var flyingFramecount = 0;
-const gravityForce = 65;
+const gravityForce = 70;
 
 function jump() {
     if (jumping == true) {
