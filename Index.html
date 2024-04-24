@@ -57,53 +57,22 @@
           </div>
       </div>
   </header>
-
-
-
   <div id="loose-screen" class="hidden" style="display: none;">
     <div class="message">
-        <p>You lost !</p>
-        <button class="buttonreplay" onclick="replay();">
-          <svg class="svg-icon" fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#ff342b" stroke-linecap="round" stroke-width="1.5"><path d="m3.33337 10.8333c0 3.6819 2.98477 6.6667 6.66663 6.6667 3.682 0 6.6667-2.9848 6.6667-6.6667 0-3.68188-2.9847-6.66664-6.6667-6.66664-1.29938 0-2.51191.37174-3.5371 1.01468"></path><path d="m7.69867 1.58163-1.44987 3.28435c-.18587.42104.00478.91303.42582 1.0989l3.28438 1.44986"></path></g></svg>
-          <span class="lable">Try Again</span>
-          </button>
-      </div>
-      <img src ="src/img/lostIMG.png" class="LoosIMG">
-  </div>
-
-
-
-  <div id="win-screen" class="hidden" style="display: none;">
+        <h2>You lost !</h2>
+        <a href="Index.html">
+        <button id="replay-button" >Replay</button>
+      </a>
+    </div>
+    <div id="win-screen" class="hidden" >
       <div class="message">
-        <p>YOU WON</p>
-        <button class="buttonreplay" onclick="replay();">
-        <svg class="svg-icon" fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><g stroke="#ff342b" stroke-linecap="round" stroke-width="1.5"><path d="m3.33337 10.8333c0 3.6819 2.98477 6.6667 6.66663 6.6667 3.682 0 6.6667-2.9848 6.6667-6.6667 0-3.68188-2.9847-6.66664-6.6667-6.66664-1.29938 0-2.51191.37174-3.5371 1.01468"></path><path d="m7.69867 1.58163-1.44987 3.28435c-.18587.42104.00478.91303.42582 1.0989l3.28438 1.44986"></path></g></svg>
-        <span class="lable">Play Again</span>
-        </button>
+          <h2>You Win !</h2>
+          <a href="Index.html">
+          <button id="replay-button">Replay</button>
+        </a>
       </div>
-      <img src ="src/img/winImg.png" class="messageIMG">
+    </div>
   </div>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <script src="/p5.js/p5.js"></script>
   <script src="/Script/Setup.js"></script>
   <script src="/Script/Map1.js"></script>
@@ -112,7 +81,9 @@
   <script src="/Script/Bot.js"></script>
   <script src="/Script/Bullet.js"></script>
   <script src="/Script/Score.js"></script>
-  <script src="/Script/Win.js"></script>
+  <script src="/Script/Button.js"></script>
+  <script src="/Script/Door.js"></script>
+  <script src="/Script/DestroBlock.js"></script>
   <script>
     var startButton = document.getElementById('start-button');
     var gameHeader = document.getElementById('game-header');

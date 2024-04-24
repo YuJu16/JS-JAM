@@ -21,20 +21,35 @@ const box2Height = 40;
 let bot;
 let bot2;
 
+//declare buttons
+let button1;
+
+let door;
+
 function loadMap1() {
     //create coins
     coin1 = new Coin(220, 340);
     coin2 = new Coin(500, 260);
     coin3 = new Coin(670, 480);
+    coin4 = new Coin(1260, 500);
 
-    //spawn bots
+    //create bots
     bot = new Bot(155, 330);
     bot2 = new Bot(600, 250);
+
+    //create button
+    button1 = new Button(270, 500);
+
+    //create door
+    door = new Door(1500, 450);
+
+    //create wall
+    wall = new DestroBlock(1000, 300);
 }
 
 function drawMap1() {
     //background
-    image(backgroundImage, windowWidth/2, windowHeight/2, windowWidth-35, windowHeight-35)
+    image(backgroundImage, windowWidth/2.5, windowHeight/2, 1400, 750)
 
     //first platforme
     image(platform, box1X, box1Y, box1Width, box1Height);
@@ -45,28 +60,55 @@ function drawMap1() {
     //spawn player
     drawPlayer(playerX, playerY);
 
-    bot.update(bot2);
-    bot2.update(bot);
-    
-    bot.draw();
-    bot2.draw();
+    bot.update(bot2, button1, wall);
+    bot2.update(bot, button1, wall);
+    door.update();
+
+    if (!bot.dead) {
+        bot.draw();
+    }
+    if (!bot2.dead) {
+        bot2.draw();
+    }
+
+    button1.update();
+
+    if (!button1.pressed) {
+        button1.draw();
+    }
 
     coin1.update();
     coin2.update();
     coin3.update();
-
-    if (!coin1.asBeenCollected) {
+    coin4.update();
+    
+    if (!coin1.asBeenCollected && button1.pressed) {
         coin1.draw();
     }
-    if (!coin3.asBeenCollected) {
+    if (!coin3.asBeenCollected && button1.pressed) {
         coin3.draw();
     }
-    if (!coin2.asBeenCollected) {
+    if (!coin2.asBeenCollected && button1.pressed) {
         coin2.draw();
+    }
+    if (!coin4.asBeenCollected && button1.pressed) {
+        coin4.draw();
+    }
+
+    if (wall.life > 0) {
+        wall.draw();
     }
 
     //apply gravity
     jump();
+
+    if (!playerState) {
+        stage == 0;
+    }
+
+    if (coin1.asBeenCollected && coin2.asBeenCollected && coin3.asBeenCollected && coin4.asBeenCollected ) {
+        alert("Bravo vous avez gagné !");
+    }
 }
 
 //isOnAGround is the function where we are going to define all collisions 

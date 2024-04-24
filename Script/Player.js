@@ -1,10 +1,12 @@
 //player size
 const playerWidth = 70;
 const playerHeight = 90;
-let playerLife = 3;
+
 const playerSpeed = 3;
 
 var jumping = false;
+
+var playerState = true;
 
 function drawPlayer(x, y) {
     stroke(0);
@@ -27,7 +29,7 @@ function keyPressed() {
 
     //right
     if (keyIsDown(68)) { //d
-        if (playerX < windowWidth-playerWidth/2-30) {
+        if (playerX < windowWidth-playerWidth/2-30 && ((playerX < wall.coordonnees.x-75) || wall.life <= 0)) {
             playerX = playerX + playerSpeed;
         }
     }
@@ -42,9 +44,5 @@ function keyPressed() {
     //to know coordonates (make map more easly)
     if (keyIsDown(67)) { //c
         console.log(playerX, playerY);
-    }
-
-    if (key === 'p' || key === 'P') {
-        isPaused = !isPaused;
     }
 }

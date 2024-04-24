@@ -8,10 +8,8 @@ class Coin {
     }
 
     update() {
-        if (playerX+playerWidth/3 > this.x && playerX-playerWidth/3 < this.x && playerY+playerHeight > this.y && playerY-playerHeight < this.y) {
+        if (playerX+playerWidth/3 > this.x && playerX-playerWidth/3 < this.x && playerY+playerHeight > this.y && playerY-playerHeight < this.y && button1.pressed) {
             this.asBeenCollected = true;
-            this.x = 10000000000000;
-            this.y = 10000000000000;
             score += 1;
         }
     }
