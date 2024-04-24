@@ -4,7 +4,10 @@ class Bot {
         this.bullets = [];
         this.radius = 15;
         this.dead = false;
+        this.shootCooldown = 0;
     }
+
+
 
 
     update(bot) {
@@ -20,11 +23,10 @@ class Bot {
             this.shootUp();
         }
         
-        if (playerX+playerWidth/3 > this.coordonnees.x && playerX-playerWidth/3 < this.coordonnees.x && playerY > this.coordonnees.y) {
-            this.shootDown();
-        }
+        // if (playerX+playerWidth/3 > this.coordonnees.x && playerX-playerWidth/3 < this.coordonnees.x && playerY > this.coordonnees.y) {
+        //     this.shootDown();
+        // }
         
-    
         this.bullets.forEach((bullet) => {
             bullet.update();
             if (dist(bullet.x, bullet.y, playerX, playerY) < playerX) {
@@ -37,6 +39,9 @@ class Bot {
             }
         });
         this.bullets = this.bullets.filter(bullet => bullet.x < width);
+        if (this.shootCooldown > 0) {
+            this.shootCooldown--;
+        }
     }    
 
     draw() {
@@ -47,26 +52,35 @@ class Bot {
     }
 
     shootRight() {
-        const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
-        bullet.velocityX = 10;
-        this.bullets.push(bullet);
+        if (this.shootCooldown == 0) {
+            const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
+            bullet.velocityX = 10;
+            this.bullets.push(bullet);
+            this.shootCooldown = 75;
+        }
     }
 
     shootLeft() {
-        const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
-        bullet.velocityX = -10;
-        this.bullets.push(bullet);
+        if (this.shootCooldown == 0) {
+            const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
+            bullet.velocityX = -10;
+            this.bullets.push(bullet);
+            this.shootCooldown = 75;
+        }
     }
 
-    shootDown() {
-        const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
-        bullet.velocityY = 10;
-        this.bullets.push(bullet);
-    }
+    // shootDown() {
+    //     const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
+    //     bullet.velocityY = 10;
+    //     this.bullets.push(bullet);
+    // }
     
     shootUp() {
-        const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
-        bullet.velocityY = -10;
-        this.bullets.push(bullet);
+        if (this.shootCooldown == 0) {
+            const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
+            bullet.velocityY = -10;
+            this.bullets.push(bullet);
+            this.shootCooldown = 75;
+        }
     }
 }
