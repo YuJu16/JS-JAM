@@ -31,14 +31,14 @@ function loadMap1() {
     coin1 = new Coin(220, 340);
     coin2 = new Coin(500, 260);
     coin3 = new Coin(670, 480);
-    coin4 = new Coin(1270, 470);
+    coin4 = new Coin(1260, 500);
 
     //create bots
     bot = new Bot(155, 330);
     bot2 = new Bot(600, 250);
 
     //create button
-    button1 = new Button(1880, 330);
+    button1 = new Button(270, 500);
 
     //create door
     door = new Door(1500, 450);
@@ -71,10 +71,10 @@ function drawMap1() {
         bot2.draw();
     }
 
+    button1.update();
+
     if (!button1.pressed) {
         button1.draw();
-    } else {
-        door.draw()
     }
 
     coin1.update();
@@ -82,16 +82,16 @@ function drawMap1() {
     coin3.update();
     coin4.update();
     
-    if (!coin1.asBeenCollected) {
+    if (!coin1.asBeenCollected && button1.pressed) {
         coin1.draw();
     }
-    if (!coin3.asBeenCollected) {
+    if (!coin3.asBeenCollected && button1.pressed) {
         coin3.draw();
     }
-    if (!coin2.asBeenCollected) {
+    if (!coin2.asBeenCollected && button1.pressed) {
         coin2.draw();
     }
-    if (!coin4.asBeenCollected) {
+    if (!coin4.asBeenCollected && button1.pressed) {
         coin4.draw();
     }
 

@@ -15,6 +15,7 @@ var upkniffe;
 var wall1HP;
 var wallMidHP;
 var wallFullHP;
+var button;
 
 //function that setup the canvas
 function setup() {
@@ -50,6 +51,7 @@ function preload() {
     wall1HP = loadImage('src/img/wall1HP.png');
     wallMidHP = loadImage('src/img/wallMidHP.png');
     wallFullHP = loadImage('src/img/wallFullHP.png');
+    button = loadImage('src/img/button.png');
 }
 
 function pastedlvl() {
