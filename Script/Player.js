@@ -19,11 +19,11 @@ function keyPressed() {
     }
 
     //down
-    if (keyIsDown(83)) { //s
-        if (isOnAGround() == false) {
-            playerY = playerY + playerSpeed;
-        }
-    }
+    // if (keyIsDown(83)) { //s
+    //     if (isOnAGround() == false) {
+    //         playerY = playerY + playerSpeed;
+    //     }
+    // }
 
     //right
     if (keyIsDown(68)) { //d

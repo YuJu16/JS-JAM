@@ -21,7 +21,18 @@ const box2Height = 40;
 let bot;
 let bot2;
 
-function map1() {
+function loadMap1() {
+    //create coins
+    coin1 = new Coin(220, 340);
+    coin2 = new Coin(500, 260);
+    coin3 = new Coin(670, 480);
+
+    //spawn bots
+    bot = new Bot(155, 330);
+    bot2 = new Bot(600, 250);
+}
+
+function drawMap1() {
     //background
     image(backgroundImage, windowWidth/2, windowHeight/2, windowWidth-35, windowHeight-35)
 
@@ -34,16 +45,25 @@ function map1() {
     //spawn player
     drawPlayer(playerX, playerY);
 
-    //spawn bots
-    bot = new Bot(155, 330);
-    bot2 = new Bot(600, 250);
-
     bot.update(bot2);
     bot2.update(bot);
     
     bot.draw();
     bot2.draw();
-    
+
+    coin1.update();
+    coin2.update();
+    coin3.update();
+
+    if (!coin1.asBeenCollected) {
+        coin1.draw();
+    }
+    if (!coin3.asBeenCollected) {
+        coin3.draw();
+    }
+    if (!coin2.asBeenCollected) {
+        coin2.draw();
+    }
 
     //apply gravity
     jump();

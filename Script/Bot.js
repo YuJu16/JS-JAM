@@ -8,21 +8,21 @@ class Bot {
 
 
     update(bot) {
-        //if (playerY === this.coordonnees.y && playerX > this.coordonnees.x) {
+        if (playerY+playerHeight/3 > this.coordonnees.y && playerY-playerHeight/3 < this.coordonnees.y && playerX > this.coordonnees.x) {
             this.shootRight();
-        //}
+        }
         
-        //if (playerY === this.coordonnees.y && playerX < this.coordonnees.x) {
+        if (playerY+playerHeight/3 > this.coordonnees.y && playerY-playerHeight/3 < this.coordonnees.y && playerX < this.coordonnees.x) {
             this.shootLeft();
-        //}
+        }
 
-        //if (playerX === this.coordonnees.x && playerY < this.coordonnees.y) {
+        if (playerX+playerWidth/3 > this.coordonnees.x && playerX-playerWidth/3 < this.coordonnees.x && playerY < this.coordonnees.y) {
             this.shootUp();
-        //}
+        }
         
-        //if (playerX === this.coordonnees.x && playerY > this.coordonnees.y) {
+        if (playerX+playerWidth/3 > this.coordonnees.x && playerX-playerWidth/3 < this.coordonnees.x && playerY > this.coordonnees.y) {
             this.shootDown();
-        //}
+        }
         
     
         this.bullets.forEach((bullet) => {
