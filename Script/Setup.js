@@ -44,6 +44,6 @@ function preload() {
     upkniffe = loadImage('src/img/upkn.png');
 }
 
-function home() {
-    stage = 0;
+function pastedlvl() {
+    stage++;
 }

@@ -21,15 +21,26 @@ const box2Height = 40;
 let bot;
 let bot2;
 
+//declare buttons
+let button1;
+
+let door;
+
 function loadMap1() {
     //create coins
     coin1 = new Coin(220, 340);
     coin2 = new Coin(500, 260);
     coin3 = new Coin(670, 480);
 
-    //spawn bots
+    //create bots
     bot = new Bot(155, 330);
     bot2 = new Bot(600, 250);
+
+    //create button
+    button1 = new Button(1880, 330);
+
+    //create door
+    door = new Door(1500, 450);
 }
 
 function drawMap1() {
@@ -45,11 +56,22 @@ function drawMap1() {
     //spawn player
     drawPlayer(playerX, playerY);
 
-    bot.update(bot2);
-    bot2.update(bot);
-    
-    bot.draw();
-    bot2.draw();
+    bot.update(bot2, button1);
+    bot2.update(bot, button1);
+    door.update();
+
+    if (!bot.dead) {
+        bot.draw();
+    }
+    if (!bot2.dead) {
+        bot2.draw();
+    }
+
+    if (!button1.pressed) {
+        button1.draw();
+    } else {
+        door.draw()
+    }
 
     coin1.update();
     coin2.update();
@@ -67,10 +89,6 @@ function drawMap1() {
 
     //apply gravity
     jump();
-
-    homeButton = createButton('Home');
-    homeButton.position(10, 10);
-    homeButton.mousePressed(home);
 }
 
 //isOnAGround is the function where we are going to define all collisions 
