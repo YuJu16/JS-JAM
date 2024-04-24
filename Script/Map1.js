@@ -96,6 +96,10 @@ function drawMap1() {
 
     //apply gravity
     jump();
+
+    if (!playerState) {
+        stage == 0;
+    }
 }
 
 //isOnAGround is the function where we are going to define all collisions 

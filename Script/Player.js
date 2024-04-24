@@ -6,6 +6,8 @@ const playerSpeed = 3;
 
 var jumping = false;
 
+var playerState = true;
+
 function drawPlayer(x, y) {
     stroke(0);
     fill(150, 0, 170); //purple

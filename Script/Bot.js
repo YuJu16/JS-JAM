@@ -23,11 +23,26 @@ class Bot {
     
         this.bullets.forEach((bullet) => {
             bullet.update();
-            console.log(bullet.x);
-            console.log(bullet.y);
+            // console.log(bullet.x);
+            // console.log(bullet.y);
             // If the bullet touch the player
-            if (dist(bullet.x, bullet.y, playerX, playerY) < playerX) {
-                //character.destroy();
+            if ((playerX + playerWidth > bullet.x) && (playerX - playerWidth < bullet.x) && (playerY + playerHeight < bullet.y) && (playerY - playerHeight > bullet.y)){
+                if (playerX + playerWidth > bullet.x) {
+                    console.log("joueur est a droite")
+                }
+                if (playerX - playerWidth < bullet.x) {
+                    console.log("joueur est a gauche")
+                }
+                if (playerY + playerHeight > bullet.y) {
+                    console.log("joueur est en dessous")
+                }
+                if (playerY - playerHeight > bullet.y) {
+                    console.log("joueur est au dessus")
+                }
+
+
+                playerState = false;
+                console.log("gna gna t'es mort")
             }
             // If the bullet touch the bot
             if (dist(bullet.x, bullet.y, bot.coordonnees.x, bot.coordonnees.y) < bot.radius) {
