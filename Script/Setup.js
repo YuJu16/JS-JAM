@@ -6,6 +6,9 @@ var characterImage;
 var backgroundImage;
 var botImage;
 var coinImage;
+var leftkniffe;
+var rightkniffe;
+var upkniffe;
 
 //function that setup the canvas
 function setup() {
@@ -36,4 +39,7 @@ function preload() {
     backgroundImage = loadImage('src/img/background.png');
     botImage = loadImage('src/img/ninjaMechant.png');
     coinImage = loadImage('src/img/coin.png');
+    leftkniffe = loadImage('src/img/leftkn.png');
+    rightkniffe = loadImage('src/img/rightkn.png');
+    upkniffe = loadImage('src/img/upkn.png');
 }

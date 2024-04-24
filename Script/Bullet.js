@@ -1,12 +1,14 @@
 class Bullet {
-  constructor(x, y) {
+  constructor(x, y, image, imageHeight, imageWidth) {
       this.x = x;
       this.y = y;
-      this.radius = 5;
-      this.speed = 1;
+      this.speed = 0.5;
       this.velocityX = 0;
       this.velocityY = 0;
-  }
+      this.image = image;
+      this.imageHeight = imageHeight;
+      this.imageWidth = imageWidth;
+    }
 
   update() {
     this.x += this.speed * this.velocityX;
@@ -15,6 +17,6 @@ class Bullet {
 
   draw() {
     fill(255, 0, 0);
-    ellipse(this.x, this.y, this.radius * 2);
+    image(this.image, this.x, this.y, this.imageHeight, this.imageWidth);
   }
 }

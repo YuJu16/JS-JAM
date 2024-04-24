@@ -53,7 +53,7 @@ class Bot {
 
     shootRight() {
         if (this.shootCooldown == 0) {
-            const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
+            const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y, rightkniffe, 30, 10);
             bullet.velocityX = 10;
             this.bullets.push(bullet);
             this.shootCooldown = 75;
@@ -62,7 +62,7 @@ class Bot {
 
     shootLeft() {
         if (this.shootCooldown == 0) {
-            const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
+            const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y, leftkniffe, 30, 10);
             bullet.velocityX = -10;
             this.bullets.push(bullet);
             this.shootCooldown = 75;
@@ -77,7 +77,7 @@ class Bot {
     
     shootUp() {
         if (this.shootCooldown == 0) {
-            const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
+            const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y, upkniffe, 10, 30);
             bullet.velocityY = -10;
             this.bullets.push(bullet);
             this.shootCooldown = 75;
