@@ -48,7 +48,7 @@ function loadMap1() {
 
 function drawMap1() {
     //background
-    image(backgroundImage, windowWidth/2, windowHeight/2, windowWidth-35, windowHeight-35)
+    image(backgroundImage, windowWidth/2.5, windowHeight/2, 1400, 750)
 
     //first platforme
     image(platform, box1X, box1Y, box1Width, box1Height);

@@ -1,6 +1,9 @@
 //game stage
 var stage = 0;
 
+//canva
+let canvas;
+
 var platform;
 var characterImage;
 var backgroundImage;
@@ -16,11 +19,10 @@ var wallFullHP;
 //function that setup the canvas
 function setup() {
     //createCanvas(windowWidth-35, windowHeight-35);
-    createCanvas(1300, 500);
+    createCanvas(1400, 750);
     rectMode(CENTER);
     textAlign(CENTER);
     imageMode(CENTER);
-
     loadMap1();
 }
 
