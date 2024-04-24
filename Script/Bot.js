@@ -26,7 +26,10 @@ class Bot {
             // console.log(bullet.x);
             // console.log(bullet.y);
             // If the bullet touch the player
-            if ((playerX + playerWidth > bullet.x) && (playerX - playerWidth < bullet.x) && (playerY + playerHeight < bullet.y) && (playerY - playerHeight > bullet.y)){
+            console.log("c");
+            if ((bullet.x > playerX - (playerWidth /2)) && (bullet.x < playerX + (playerWidth/2)) && (bullet.y > (playerY - playerHeight/2)) && (bullet.y < playerY + playerHeight/2)) {
+                console.log("gna gna t'es mort");
+                playerState = false;
                 if (playerX + playerWidth > bullet.x) {
                     console.log("joueur est a droite")
                 }

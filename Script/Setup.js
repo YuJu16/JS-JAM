@@ -15,8 +15,8 @@ var wallFullHP;
 
 //function that setup the canvas
 function setup() {
-    createCanvas(windowWidth-35, windowHeight-35);
-    //createCanvas(800, 500);
+    //createCanvas(windowWidth-35, windowHeight-35);
+    createCanvas(1300, 500);
     rectMode(CENTER);
     textAlign(CENTER);
     imageMode(CENTER);
