@@ -31,6 +31,7 @@ function loadMap1() {
     coin1 = new Coin(220, 340);
     coin2 = new Coin(500, 260);
     coin3 = new Coin(670, 480);
+    coin4 = new Coin(1270, 470);
 
     //create bots
     bot = new Bot(155, 330);
@@ -43,7 +44,7 @@ function loadMap1() {
     door = new Door(1500, 450);
 
     //create wall
-    wall = new DestroBlock(1300, 330);
+    wall = new DestroBlock(1000, 300);
 }
 
 function drawMap1() {
@@ -79,7 +80,8 @@ function drawMap1() {
     coin1.update();
     coin2.update();
     coin3.update();
-
+    coin4.update();
+    
     if (!coin1.asBeenCollected) {
         coin1.draw();
     }
@@ -88,6 +90,9 @@ function drawMap1() {
     }
     if (!coin2.asBeenCollected) {
         coin2.draw();
+    }
+    if (!coin4.asBeenCollected) {
+        coin4.draw();
     }
 
     if (wall.life > 0) {
