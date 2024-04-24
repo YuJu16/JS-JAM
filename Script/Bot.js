@@ -4,30 +4,33 @@ class Bot {
         this.bullets = [];
         this.radius = 15;
         this.dead = false;
+        this.shootCooldown = 0;
     }
 
-    update(character, bot) {
-        if (character.coordonnees.y === this.coordonnees.y && character.coordonnees.x > this.coordonnees.x) {
+
+
+
+    update(bot) {
+        if (playerY+playerHeight/3 > this.coordonnees.y && playerY-playerHeight/3 < this.coordonnees.y && playerX > this.coordonnees.x) {
             this.shootRight();
         }
         
-        if (character.coordonnees.y === this.coordonnees.y && character.coordonnees.x < this.coordonnees.x) {
+        if (playerY+playerHeight/3 > this.coordonnees.y && playerY-playerHeight/3 < this.coordonnees.y && playerX < this.coordonnees.x) {
             this.shootLeft();
         }
 
-        if (character.coordonnees.x === this.coordonnees.x && character.coordonnees.y < this.coordonnees.y) {
+        if (playerX+playerWidth/3 > this.coordonnees.x && playerX-playerWidth/3 < this.coordonnees.x && playerY < this.coordonnees.y) {
             this.shootUp();
         }
         
-        if (character.coordonnees.x === this.coordonnees.x && character.coordonnees.y > this.coordonnees.y) {
-            this.shootDown();
-        }
+        // if (playerX+playerWidth/3 > this.coordonnees.x && playerX-playerWidth/3 < this.coordonnees.x && playerY > this.coordonnees.y) {
+        //     this.shootDown();
+        // }
         
-    
         this.bullets.forEach((bullet) => {
             bullet.update();
-            if (dist(bullet.x, bullet.y, character.coordonnees.x, character.coordonnees.y) < character.radius) {
-                character.destroy();
+            if (dist(bullet.x, bullet.y, playerX, playerY) < playerX) {
+                //character.destroy();
             }
             if (dist(bullet.x, bullet.y, bot.coordonnees.x, bot.coordonnees.y) < bot.radius) {
                 bot.dead = true;
@@ -36,39 +39,48 @@ class Bot {
             }
         });
         this.bullets = this.bullets.filter(bullet => bullet.x < width);
-    }
-    
+        if (this.shootCooldown > 0) {
+            this.shootCooldown--;
+        }
+    }    
 
     draw() {
-        c.fillStyle = 'rgb(255, 0, 0)';
-        c.fillRect(this.coordonnees.x, this.coordonnees.y, 20, 20);
+        image(botImage, this.coordonnees.x, this.coordonnees.y, 75, 75);
         this.bullets.forEach(bullet => {
             bullet.draw();
         });
     }
 
     shootRight() {
-        const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
-        bullet.velocityX = 10;
-        this.bullets.push(bullet);
+        if (this.shootCooldown == 0) {
+            const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y, rightkniffe, 30, 10);
+            bullet.velocityX = 10;
+            this.bullets.push(bullet);
+            this.shootCooldown = 75;
+        }
     }
 
     shootLeft() {
-        const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
-        bullet.velocityX = -10;
-        this.bullets.push(bullet);
+        if (this.shootCooldown == 0) {
+            const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y, leftkniffe, 30, 10);
+            bullet.velocityX = -10;
+            this.bullets.push(bullet);
+            this.shootCooldown = 75;
+        }
     }
 
-    shootDown() {
-        const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
-        bullet.velocityY = 10;
-        this.bullets.push(bullet);
-    }
+    // shootDown() {
+    //     const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
+    //     bullet.velocityY = 10;
+    //     this.bullets.push(bullet);
+    // }
     
     shootUp() {
-        const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y);
-        bullet.velocityY = -10;
-        this.bullets.push(bullet);
+        if (this.shootCooldown == 0) {
+            const bullet = new Bullet(this.coordonnees.x, this.coordonnees.y, upkniffe, 10, 30);
+            bullet.velocityY = -10;
+            this.bullets.push(bullet);
+            this.shootCooldown = 75;
+        }
     }
-    
 }
