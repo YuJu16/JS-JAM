@@ -1,7 +1,7 @@
 //player size
 const playerWidth = 70;
 const playerHeight = 90;
-
+let playerLife = 3;
 const playerSpeed = 3;
 
 var jumping = false;
@@ -42,5 +42,9 @@ function keyPressed() {
     //to know coordonates (make map more easly)
     if (keyIsDown(67)) { //c
         console.log(playerX, playerY);
+    }
+
+    if (key === 'p' || key === 'P') {
+        isPaused = !isPaused;
     }
 }

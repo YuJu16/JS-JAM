@@ -29,7 +29,8 @@ class Bot {
         
         this.bullets.forEach((bullet) => {
             bullet.update();
-            if (dist(bullet.x, bullet.y, playerX, playerY) < playerX) {
+            if (bullet.x === playerX && bullet.y === playerY) {
+                console.log("touched")
                 //character.destroy();
             }
             if (dist(bullet.x, bullet.y, bot.coordonnees.x, bot.coordonnees.y) < bot.radius) {
@@ -48,6 +49,9 @@ class Bot {
         image(botImage, this.coordonnees.x, this.coordonnees.y, 75, 75);
         this.bullets.forEach(bullet => {
             bullet.draw();
+            if (bullet.touched) {
+                this.bullets.pop(bullet)
+            }
         });
     }
 

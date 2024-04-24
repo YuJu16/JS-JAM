@@ -24,7 +24,30 @@ function setup() {
 //function that draw the page
 function draw() {
     if (stage == 1) {
-        drawMap1();
+        checkWin = verifierVictoire1();
+        checkLoose = verifierLoose();
+        if (checkLoose===false && checkWin === false) {
+            replayCheck = false; 
+            replayCheck1 = false;
+            drawMap1();
+        } else {
+            if (replayCheck === false) {
+                var Win = document.getElementById('win-screen');
+                Win.style.display ='flex';
+                var canvas = document.getElementById('defaultCanvas0')
+                canvas.style.display = 'none';
+                var Loose = document.getElementById('loose-screen');
+                Loose.style.display ='none';
+            } else {
+            if (replayCheck1 === false) {
+                var Loose = document.getElementById('loose-screen');
+                Loose.style.display ='flex';
+                var Win = document.getElementById('win-screen');
+                Win.style.display ='none';
+                var canvas = document.getElementById('defaultCanvas0')
+                canvas.style.display = 'none';
+            } }
+        }
     }
     keyPressed();
     if (isOnAGround() == false && jumping == false) {
