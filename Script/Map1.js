@@ -41,6 +41,9 @@ function loadMap1() {
 
     //create door
     door = new Door(1500, 450);
+
+    //create wall
+    wall = new DestroBlock(1300, 330);
 }
 
 function drawMap1() {
@@ -85,6 +88,10 @@ function drawMap1() {
     }
     if (!coin2.asBeenCollected) {
         coin2.draw();
+    }
+
+    if (wall.life > 0) {
+        wall.draw();
     }
 
     //apply gravity

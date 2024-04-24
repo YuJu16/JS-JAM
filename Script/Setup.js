@@ -9,6 +9,9 @@ var coinImage;
 var leftkniffe;
 var rightkniffe;
 var upkniffe;
+var wall1HP;
+var wallMidHP;
+var wallFullHP;
 
 //function that setup the canvas
 function setup() {
@@ -42,6 +45,9 @@ function preload() {
     leftkniffe = loadImage('src/img/leftkn.png');
     rightkniffe = loadImage('src/img/rightkn.png');
     upkniffe = loadImage('src/img/upkn.png');
+    wall1HP = loadImage('src/img/wall1HP.png');
+    wallMidHP = loadImage('src/img/wallMidHP.png');
+    wallFullHP = loadImage('src/img/wallFullHP.png');
 }
 
 function pastedlvl() {
