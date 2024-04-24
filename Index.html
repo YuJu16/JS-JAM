@@ -1,18 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/p5.js/p5.js"></script>
-    <title>Game JAM</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <title>GAME JS</title>
 </head>
 <body>
-    <script src="/Script/Setup.js"></script>
-    <script src="/Script/Map1.js"></script>
-    <script src="/Script/Player.js"></script>
-    <script src="/Script/Gravity.js"></script>
-    <script src="/Script/Bot.js"></script>
-    <script src="/Script/Bullet.js"></script>
-    <script src="/Script/Score.js"></script>
+  <header id="game-header">
+      <div class="section_3">
+          <div class="section_3_partion_1">
+              <div class="partition_1_head">
+                <div class="button-container" id="start-button">
+                  <div class="button">
+                    <div class="button-icon">
+                        <div class="one"></div>
+                        <div class="two"></div>
+                        <div class="dots"></div>
+                        <div class="dots2"></div>
+                    </div>
+                  </div>
+                  <p>Start ?</p>
+                </div>
+              </div>
+              <div class="container">
+                <div class="title">
+                  <h2>SURVIVAL GAME JAM</h2>
+                </div>
+                <div class="ghost">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+          </div>
+          <div class="section_3_partion_2">
+              <div class="carts_container">
+                  <div class="cart cart_1">
+                      <div class="cart_image cart_image_1">
+                      </div>
+                  </div>
+                  <div class="cart cart_1">
+                      <div class="cart_image cart_image_2">
+
+                      </div>
+                  </div>
+                  <div class="cart cart_1">
+                      <div class="cart_image cart_image_3">
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
+  <div id="loose-screen" class="hidden" style="display: none;">
+    <div class="message">
+        <h2>You lost !</h2>
+        <a href="Index.html">
+        <button id="replay-button" >Replay</button>
+      </a>
+    </div>
+    <div id="win-screen" class="hidden" >
+      <div class="message">
+          <h2>You Win !</h2>
+          <a href="Index.html">
+          <button id="replay-button">Replay</button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script src="/p5.js/p5.js"></script>
+  <script src="/Script/Setup.js"></script>
+  <script src="/Script/Map1.js"></script>
+  <script src="/Script/Player.js"></script>
+  <script src="/Script/Gravity.js"></script>
+  <script src="/Script/Bot.js"></script>
+  <script src="/Script/Bullet.js"></script>
+  <script src="/Script/Score.js"></script>
+  <script>
+    var startButton = document.getElementById('start-button');
+    var gameHeader = document.getElementById('game-header');
+    startButton.onclick = function() {
+      stage++;
+      gameHeader.style.display = 'none';
+    };
+  </script>
 </body>
 </html>
