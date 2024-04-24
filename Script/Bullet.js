@@ -13,12 +13,12 @@ class Bullet {
     }
 
   update() {
-      this.x += this.speed * this.velocityX;
-      this.y += this.speed * this.velocityY;
-      if ((this.x + this.imageWidth >= playerX && 
-          this.x <= playerX + playerWidth  && 
-          this.y <= playerY + playerHeight && 
-          this.y + this.imageHeight >= playerY
+      this.x += this.speed * this.velocityX; // this.x = this.x + this.speed * this.velocityX
+      this.y += this.speed * this.velocityY; // this.y = this.y + this.speed * this.velocityY
+      if ((this.x + this.imageWidth >= playerX && // bullet is on the right of the player
+          this.x <= playerX + playerWidth  && // bullet is on the left of the player
+          this.y <= playerY + playerHeight && // bullet is above the player
+          this.y + this.imageHeight >= playerY // bullet is below the player
       )) {
         console.log("touched");
         playerLife -= 1;
